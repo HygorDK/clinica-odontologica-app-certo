@@ -25,9 +25,19 @@ class Login extends React.Component{
     onChangeSenha = (e) => {
         this.setState({senha: e.target.value})
     }
-  
+  onClickMenu = () =>{ 
+      //NÃO ESTÁ FUNCIONANDO A VALIDAÇÃO SE ALGUEM SOUBER ARRUMAR (entra normal no menu) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+      /*this.usuario = usuario
+      this.senha = senha
+    if (usuario == 'admin' && senha == '123'){*/
+    window.location.href = '/Menu'}
+   /* else{
+        alert('Usuario ou Senha invalido')
+    }}*/
+
+
     render (){
-        
+     
         return (
            
             
@@ -42,14 +52,15 @@ class Login extends React.Component{
                                         <div className="bs-component">
                                             <fieldset>
                                                   {/* para cada caracter que o usuário digitar nesse campo ele vai chamar a função onChangeUsuario*/}
-                                                    <input type="text" className="form-control" onChange={this.onChangeUsuario} placeholder="Digite o usuario"/><br/>
+                                                    <input type="text" id="usuario" className="form-control" onChange={this.onChangeUsuario} placeholder="Digite o usuario"/><br/>
                                                     {/*para cada caracter que o usuário digitar nesse campo ele vai chamar a função onChangeSenha */}
-                                                    <input type="text" className="form-control" onChange={this.onChangeSenha} placeholder="Digite a senha"/><br/>
-                                                    <button type="button" className="btn btn-success"
+                                                    <input type="password" id="senha" className="form-control" onChange={this.onChangeSenha} placeholder="Digite a senha"/><br/>
+                                                    <button type="button" id="btEntrar" className="btn btn-success" onClick={this.onClickMenu}
                                                     /*Aqui nessa condição, verifico se o conteudo do state usuário e ou senha é igual a zero.
                                                      Caso um dos 2 sejam igual a zero, o botão permanecerá desabilitado */
                                                     disabled={this.state.usuario.length === 0 || this.state.senha.length === 0}>Entrar
                                                     </button>    
+                                                    
                                                
                                                     <br>
                                                     </br>
