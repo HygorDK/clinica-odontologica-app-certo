@@ -50,6 +50,7 @@ class CadastroPaciente extends React.Component{
             
               
             <Card title = "Cadastro de Paciente">
+        <form>
             <div class="row">
                 <div class="col-lg-12">
                 <div class="form-group">
@@ -181,8 +182,8 @@ class CadastroPaciente extends React.Component{
                         </br>
                       <button className="btn btn-danger">Cadastrar</button>
                       <button className="btn btn-primary">Consultar</button>
-                      <button className="btn btn-warning" onClickCapture={(a)} >Apagar</button>
-          
+                      <button type="reset" className="btn btn-warning" >Apagar</button>
+          </form>
         </Card>
         </main>
         

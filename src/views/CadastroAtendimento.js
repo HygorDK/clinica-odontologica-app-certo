@@ -13,8 +13,10 @@ import Header from './Header'
         return (
             <div style={{ backgroundImage: `url(${backgroundImage})` }}> 
                 <Header></Header>
+                
                 <main className="container ">
                     <Card title=" Atendimento">
+                    <form>
                     <div class="row">
                         <div class="form-group">
                             <div class="bs-component">
@@ -39,11 +41,12 @@ import Header from './Header'
                             </br>
                             <button className="btn btn-success">Pesquisar</button>
                             <button className="btn btn-danger">Cancelar</button>
+                            <button type="reset" className="btn btn-warning" >Apagar</button>
                            
                             </div>
                         </div>
                     </div>
-    
+                </form>
                         </Card>
                     </main>
         

@@ -50,52 +50,26 @@ class Header extends Component {
             <a
               className="nav-link dropdown-toggle"
               onClick={this.handleButtonClick}
-              aria-required aria-labelledby="foo"
+              
             >
               Cadastrar
-            </a>
-          <div
-              className={
-                this.state.open ? "dropdown-menu show" : "dropdown-menu"
-              }
-              x-placement="bottom-start"
-            >
-               <a className="dropdown-item" href="/CadastroAtendimento">
-                Atendimentos
-              </a>
-              <a className="dropdown-item" href="/CadastroDentista">
-                Dentistas
-              </a>
-              <a className="dropdown-item" href="/CadastroPaciente">
-                Pacientes
-              </a>
-            </div>
-          </li>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              onClick={this.handleButtonClick}
-              href="#"
-            >
-              Buscar
             </a>
             <div
               className={
                 this.state.open ? "dropdown-menu show" : "dropdown-menu"
               }
-              x-placement="bottom-start"
+             
             >
-               <a className="dropdown-item" href="/BuscarAtendimentos">
-                Atendimentos
+               <a className="dropdown-item" href="/CadastroAtendimento">
+                CAtendimentos
               </a>
-              <a className="dropdown-item" href="/BuscarDentista">
-                Dentistas
+              <a className="dropdown-item" href="/CadastroDentista">
+               CDentistas
               </a>
-              <a className="dropdown-item" href="/BuscarPaciente">
-                Pacientes
+              <a className="dropdown-item" href="/CadastroPaciente">
+                CPacientes
               </a>
             </div>
-            
           </li>
         </ul>
       </div>
