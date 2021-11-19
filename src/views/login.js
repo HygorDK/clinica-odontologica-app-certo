@@ -3,13 +3,14 @@ import Card from '../components/card'
 import backgroundImage from '../image/fundo.jpeg'
 
 
-
 class Login extends React.Component{
     
         // Aqui estou inicializando o component App. Nesta função estamos inicializando o state e passando os
         // valores do usuário e da senha como vazio. o super(props) é um requisito do próprio react
         constructor(props) {
             super(props);
+            this.handleSenhaClick = this.handleSenhaClick.bind(this);
+            
             this.state = {
                 usuario: "",
                 senha: ""
@@ -25,6 +26,10 @@ class Login extends React.Component{
     onChangeSenha = (e) => {
         this.setState({senha: e.target.value})
     }
+
+    handleSenhaClick() {
+        this.setState({usuario: target.value});
+      }
   //onClickMenu = () =>{ 
       //NÃO ESTÁ FUNCIONANDO A VALIDAÇÃO SE ALGUEM SOUBER ARRUMAR (entra normal no menu) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
       /*this.usuario = usuario
@@ -34,17 +39,24 @@ class Login extends React.Component{
    /* else{
         alert('Usuario ou Senha invalido')
     }}*/
+    
+      
 
     render (){
-     function test () { 
-        if (usuario === 'admin' && senha === '123'){
-             window.location.href = '/Menu'}
-            else{
-                alert('Usuario ou Senha invalido')
-            } 
-     }
-      
+        const test = () =>{
+        const usuario = this.state.usuario
+        const senha = this.state.senha
+
+            if (usuario === 'admin' && senha === '123'){
+                 window.location.href = '/Menu'}
+                else{
+                    alert('Usuario ou Senha invalido')
+                } 
+            }
+     
         return (
+            
+               
            <div>
             <div style={{ backgroundImage: `url(${backgroundImage})` }}>
                 
