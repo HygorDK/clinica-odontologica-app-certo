@@ -44,11 +44,11 @@
       "numero":"55", 
       "complemento":"Casa Verde"},
 
-      {"id": 3,
+      {"id": 4,
       "fullName": "Nilza Sousa", 
       "cpf": "483.040.283_40", 
       "data":"1974-05-10", 
-      "sexo":"FEMININO", 
+      "sexo":"NB", 
       "telefone":"(16)4859_1878", 
       "celular":"(15) 3958_1394", 
       "convenio":"", 

@@ -10,8 +10,12 @@ import InputMask from "react-input-mask";
 import Header from './Header';
 import Footer from './Footer';
 import backgroundImage from '../image/fundo.jpeg'
+import './styles.css'
 
-const App = () => {
+
+const Atendimento = () => {
+ 
+   
   const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
     fullName: "",
@@ -170,131 +174,202 @@ const App = () => {
   return (
     <div className="app-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <Header></Header>
+      <main className="container ">
 
-      <h2>Cadastrar um Paciente</h2>
-      
+      <Card title = "Cadastro de Paciente">
       <form onSubmit={handleAddFormSubmit}>
-        <input type= "text" 
-          name="fullName"
-          required="required"
-          placeholder="Digite o nome..."
-          onChange={handleAddFormChange}/>
+      
+      <div class='row'>
+          <div class='col-lg-12'>
+          <label  htmlFor="inputNome">Nome:*</label>
+            <div class="form-group">
+              
+                <input type= "text" 
+                  name="fullName"
+                  required="required"
+                  className="form-control"
+                  placeholder="Digite o nome..."
+                  onChange={handleAddFormChange}/>
+              
+            </div>
+          </div> 
+        </div>
+        <div class ='row'>
+          <div class="col-md-4 col-xs-4">
+          <label  htmlFor="inputCPF">CPF:*</label>
+            <div class='FormGroup'>
+              <InputMask
+                mask="999.999.999-99"
+                type="text"
+                name="cpf"
+                required="required"
+                className="form-control"
+                placeholder="Digite o CPF..."
+                onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-4">
+          <label  htmlFor="inputDate">Data Nascimento:*</label>
+            <div class='FormGroup'>
+              <input
+                type="date"
+                name="data"
+                required="required"
+                className="form-control"
+                placeholder="Digite a Data de Nascimento..."
+                onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-4">
+          <label  htmlFor="inputSexo">Sexo:*</label>
+            <div class='FormGroup'>
+                <SelectMenu name="sexo" lista={lista} className="form-control" onChange={handleAddFormChange}/>
+            </div>
+          </div>
+        </div>
+        <div class ='row'>
+        <div class="col-md-4 col-xs-4">
+          <div class='FormGroup'>
+            <label  htmlFor="inputTelefone">Telefone:*</label>
+              <InputMask
+                mask="(99) 9999-9999"
+                type="text"
+                name="telefone"
+                required="required"
+                className="form-control"
+                placeholder="Digite o Telefone..."
+                onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-4">
+            <div class='FormGroup'>
+            <label  htmlFor="inputCelular">Celular:*</label>
+              <InputMask
+                mask="(99) 9 9999-9999"
+                type="text"
+                name="celular"
+                required="required"
+                className="form-control"
+                placeholder="Digite o Celular..."
+                onChange={handleAddFormChange}
+                />
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-4">
+            <div class='FormGroup'>
+            <label  htmlFor="inputConvenio">Convênio:*</label>
+              <input
+                type="text"
+                name="convenio"
+                required="required"
+                className="form-control"
+                placeholder="Digite o Convenio..."
+                onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+        </div>
+        <div class ='row'>
+          <div class='col-lg-12'>
+            <div class="form-group">
+            <label>Email:*</label>
+              <input
+                type="email"
+                name="email"
+                required="required"
+                className="form-control"
+                placeholder="Digite o email..."
+                onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+        </div>
+        <h4>Endereço do Paciente:</h4>
+        <div class ='row'>
+          <div class="col-md-2 col-xs-2">
+            <div class='FormGroup'>
+            <label>CEP:*</label>
+              <InputMask
+              mask="99999-999"
+              type="text"
+              name="cep"
+              required="required"
+              className="form-control"
+              placeholder="Digite o CEP"
+              onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-xs-6">
+            <div class='FormGroup'>
+            <label>Rua/Av:*</label>
+              <input
+                type="text"
+                name="endereco"
+                required="required"
+                className="form-control"
+                placeholder="Digite o Endereço..."
+                onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+          <div class="col-md-2 col-xs-2">
+            <div class='FormGroup'>
+            <label >Número:*</label>
+              <input
+                type="number"
+                name="numero"
+                required="required"
+                className="form-control"
+                placeholder=" Digite o número"
+                onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+          <div class="col-md-2 col-xs-2">
+            <div class='FormGroup'>
+            <label>Complemento:*</label>
+              <input
+                type="text"
+                name="complemento"
+                required="required"
+                className="form-control"
+                placeholder="Complemento"
+                onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+        </div>
+        <br>
+        </br>
+                      
                         
-        
-        <InputMask
-          mask="999.999.999-99"
-          type="text"
-          name="cpf"
-          required="required"
-          placeholder="Digite o CPF..."
-          onChange={handleAddFormChange}
-        />
-
-        <FormGroup htmlFor="inputdatanascimento">
-        <input
-          type="date"
-          name="data"
-          required="required"
-          placeholder="Digite a Data de Nascimento..."
-          onChange={handleAddFormChange}
-        />
-        </FormGroup>
-        
-        <FormGroup htmlFor="inputSexo">
-         <SelectMenu name="sexo" lista={lista}/>
-        </FormGroup>
-        <InputMask
-          mask="(99) 9999-9999"
-          type="text"
-          name="telefone"
-          required="required"
-          placeholder="Digite o Telefone..."
-          onChange={handleAddFormChange}
-        />
-       
-        <InputMask
-        mask="(99) 9 9999-9999"
-          type="text"
-          name="celular"
-          required="required"
-          placeholder="Digite o Celular..."
-          onChange={handleAddFormChange}
-        />
-       <input
-          type="text"
-          name="convenio"
-          required="required"
-          placeholder="Digite o Convenio..."
-          onChange={handleAddFormChange}
-        />
-        
-        <input
-          type="email"
-          name="email"
-          required="required"
-          placeholder="Digite o email..."
-          onChange={handleAddFormChange}
-        />
-        
-        <InputMask
-          mask="99999-999"
-          type="text"
-          name="cep"
-          required="required"
-          placeholder="Digite o CEP..."
-          onChange={handleAddFormChange}
-        />
-        
-        <input
-          type="text"
-          name="endereco"
-          required="required"
-          placeholder="Digite o Endereço..."
-          onChange={handleAddFormChange}
-        />
-
-        <input
-          type="number"
-          name="numero"
-          required="required"
-          placeholder="Digite o Número da Casa.."
-          onChange={handleAddFormChange}
-        />
-        
-        
-        
-        <input
-          type="text"
-          name="complemento"
-          required="required"
-          placeholder="Complemento da Casa..."
-          onChange={handleAddFormChange}
-        />
-        
-        
-        
-        
-        <button type="submit">Cadastrar</button>
-        
-      </form>
-
+        <button className="btn btn-success" type="submit">Cadastrar</button>
+        </form>
+      </Card>
+      </main>
+      <Card title = "Cadastro de Paciente">
       <form onSubmit={handleEditFormSubmit}>
-        <table>
+        <table id="tbPaciente" >
           <thead>
             <tr>
-              <th>Nome</th>
-              <th>cpf</th>
-              <th>Data de Nascimento</th>
-              <th>Sexo</th>
-              <th>Telefone</th>
-              <th>Celular</th>
-              <th>Convenio</th>
-              <th>Email</th>
-              <th>cep</th>
-              <th>endereco</th>
-              <th>numero</th>
-              <th>complemento</th>           
-              <th>Ações</th>
+
+              <th>NOME</th>
+              <th>CPF</th>
+              <th>DATA DE NASCIMENTO</th>
+              <th>SEXO</th>
+              <th>TELEFONE</th>
+              <th>CELULAR</th>
+              <th>CONVÊNIO</th>
+              <th>EMAIL</th>
+              <th>CEP</th>
+              <th>ENDEREÇO</th>
+              <th>NUMERO</th>
+              <th>COMPLEMENTO</th>           
+              <th>AÇÕES</th>
             </tr>
           </thead>
           <tbody>
@@ -317,11 +392,14 @@ const App = () => {
             ))}
           </tbody>
         </table>
-      </form>
+        </form>
+
+        </Card>
+
       <Footer></Footer>
     </div>
     
   );
-};
+}
 
-export default App;
+export default Atendimento;
