@@ -19,6 +19,7 @@ ReactDOM.render(
         <Route path="/CadastroPaciente" component={CadastroPaciente} />
         <Route path="/BuscarPaciente" component={BuscarPaciente} />
         <Route path="/CadastroAtendimento" component={CadastroAtendimento} />
+
         
         
         
