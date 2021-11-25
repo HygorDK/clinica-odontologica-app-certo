@@ -70,7 +70,6 @@ const EditableRow = ({
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Digite o convenio"
           name="convenio"
           value={editFormData.convenio}
@@ -80,7 +79,6 @@ const EditableRow = ({
       <td>
         <input
           type="email"
-          required="required"
           placeholder="Digite o e-mail"
           name="email"
           value={editFormData.email}
@@ -120,7 +118,6 @@ const EditableRow = ({
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Digite o Complemento."
           name="complemento"
           value={editFormData.complemento}

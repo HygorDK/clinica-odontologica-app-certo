@@ -20,7 +20,6 @@ const EditableRowB = ({
       <td>
         <input
           type="email"
-          required="required"
           placeholder="Digite o e-mail"
           name="email"
           value={editFormData.email}

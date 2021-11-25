@@ -132,123 +132,126 @@ const Atendimento = () => {
       <main className="container ">
 
       <Card title = "Cadastro de Atendimento">
-      <form onSubmit={handleAddFormSubmit}>
-      
-      <div class='row'>
-        <div class="col-md-8 col-xs-8"> 
-          <label  htmlFor="inputNome">Nome:*</label>
-            <div class="form-group">
-              
-                <input 
-                  type= "text" 
-                  name="nome"
-                  required="required"
-                  className="form-control"
-                  placeholder="Digite aqui"
-                  onChange={handleAddFormChange}/>
-              
+       <h6>
+          Campos Obrigatórios: *
+       </h6>
+        <form onSubmit={handleAddFormSubmit}>
+        
+          <div class='row'>
+            <div class="col-md-8 col-xs-8"> 
+              <label  htmlFor="inputNome">Nome:*</label>
+                <div class="form-group">
+                  
+                    <input 
+                      type= "text" 
+                      name="nome"
+                      required="required"
+                      className="form-control"
+                      placeholder="Digite aqui"
+                      onChange={handleAddFormChange}/>
+                  
+                </div>
+              </div> 
+              <div class="col-md-4 col-xs-4">
+              <label  htmlFor="inputCPF">CPF:*</label>
+                <div class='FormGroup'>
+                  <InputMask
+                    mask="999.999.999-99"
+                    type="text"
+                    name="cpf"
+                    required="required"
+                    className="form-control"
+                    placeholder="Digite aqui"
+                    onChange={handleAddFormChange}
+                  />
+                </div>
+              </div>
+              </div>
+              <div class = "row">
+              <div class="col-md-4 col-xs-4">
+              <label  htmlFor="inputDate">Data:*</label>
+                <div class='FormGroup'>
+                  <input
+                    type="date"
+                    name="data"
+                    required="required"
+                    className="form-control"
+                    placeholder="Digite aqui"
+                    onChange={handleAddFormChange}
+                  />
+                </div>
+              </div>
+              <div class="col-md-4 col-xs-4">
+              <label  htmlFor="inputDate">Hora:*</label>
+                <div class='FormGroup'>
+                  <InputMask
+                    mask="99:99"
+                    type="text"
+                    name="hora"
+                    required="required"
+                    className="form-control"
+                    placeholder="Digite aqui"
+                    onChange={handleAddFormChange}
+                  />
+                </div>
+              </div>
+              <div class="col-md-4 col-xs-4">
+              <label  htmlFor="inputDentista">Dentista:*</label>
+                <div class='FormGroup'>
+                  <input
+                    type="text"
+                    name="dentista"
+                    required="required"
+                    className="form-control"
+                    placeholder="Digite aqui"
+                    onChange={handleAddFormChange}
+                  />
+                </div>
+              </div>
             </div>
-          </div> 
-          <div class="col-md-4 col-xs-4">
-          <label  htmlFor="inputCPF">CPF:*</label>
-            <div class='FormGroup'>
-              <InputMask
-                mask="999.999.999-99"
-                type="text"
-                name="cpf"
-                required="required"
-                className="form-control"
-                placeholder="Digite aqui"
-                onChange={handleAddFormChange}
-              />
-            </div>
-          </div>
-          </div>
-          <div class = "row">
-          <div class="col-md-4 col-xs-4">
-          <label  htmlFor="inputDate">Data:*</label>
-            <div class='FormGroup'>
-              <input
-                type="date"
-                name="data"
-                required="required"
-                className="form-control"
-                placeholder="Digite aqui"
-                onChange={handleAddFormChange}
-              />
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-4">
-          <label  htmlFor="inputDate">Hora:*</label>
-            <div class='FormGroup'>
-              <InputMask
-                mask="99:99"
-                type="text"
-                name="hora"
-                required="required"
-                className="form-control"
-                placeholder="Digite aqui"
-                onChange={handleAddFormChange}
-              />
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-4">
-          <label  htmlFor="inputDentista">Dentista:*</label>
-            <div class='FormGroup'>
-              <input
-                type="text"
-                name="dentista"
-                required="required"
-                className="form-control"
-                placeholder="Digite aqui"
-                onChange={handleAddFormChange}
-              />
-            </div>
-          </div>
-        </div>
-        <br>
-        </br>
-                      
-                        
-        <button className="btn btn-success" type="submit">Cadastrar</button>
-        </form>
-      </Card>
-      </main>
-      <Card title = "Atendimentos cadastrados">
-      <form onSubmit={handleEditFormSubmit}> 
-        <table id="tbPaciente">
-          <thead>
-            <tr>
+            <br>
+            </br>
+                          
+                            
+            <button className="btn btn-success" type="submit">Cadastrar</button>
+            </form>
+          </Card>
+          </main>
+          <Card title = "Atendimentos cadastrados">
+          <form onSubmit={handleEditFormSubmit}> 
+            <table id="tbPaciente">
+              <thead>
+                <tr>
 
-              <th>NOME</th>
-              <th>CPF</th>
-              <th>DATA</th>
-              <th>HORA</th>
-              <th>DENTISTA</th>
-              <th>AÇÕES</th>
-            </tr>
-          </thead>
-          <tbody>
-            {contacts.map((contact) => (
-              <Fragment>
-                {editContactId === contact.id ? (
-                  <EditableRowA
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
-                ) : (
-                  <ReadOnlyRowA
-                    contact={contact}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
-                  />
-                )}
-              </Fragment>
-            ))}
-          </tbody>
-        </table>
-        </form>
+                  <th>NOME</th>
+                  <th>CPF</th>
+                  <th>DATA</th>
+                  <th>HORA</th>
+                  <th>DENTISTA</th>
+                  <th>AÇÕES</th>
+                </tr>
+              </thead>
+              <tbody>
+                {contacts.map((contact) => (
+                  <Fragment>
+                    {editContactId === contact.id ? (
+                      <EditableRowA
+                        editFormData={editFormData}
+                        handleEditFormChange={handleEditFormChange}
+                        handleCancelClick={handleCancelClick}
+                      />
+                    ) : (
+                      <ReadOnlyRowA
+                        contact={contact}
+                        handleEditClick={handleEditClick}
+                        handleDeleteClick={handleDeleteClick}
+                      />
+                    )}
+                  </Fragment>
+                ))}
+              </tbody>
+            </table>
+            </form>
 
         </Card>
 

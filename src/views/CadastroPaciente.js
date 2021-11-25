@@ -179,7 +179,7 @@ const Paciente = () => {
 
       <Card title = "Cadastro de Paciente">
         <h6>
-          Campos Obrigatorios: *
+          Campos Obrigatórios: *
         </h6>
       <form onSubmit={handleAddFormSubmit}>
       
