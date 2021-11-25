@@ -6,7 +6,9 @@ import Menu from './views/Menu'
 import * as serviceWorker from './serviceWorker'
 import CadastroPaciente from './views/CadastroPaciente'
 import CadastroAtendimento from './views/CadastroAtendimento'
-import BuscarPaciente from './views/BuscarPaciente';
+import Receita from './views/Receita'
+import CadastroDentista from './views/CadastroDentista';
+
 
 
 
@@ -17,8 +19,9 @@ ReactDOM.render(
         <Route path="/" exact={true} component={App} />
         <Route path="/Menu" component={Menu} />
         <Route path="/CadastroPaciente" component={CadastroPaciente} />
-        <Route path="/BuscarPaciente" component={BuscarPaciente} />
+        <Route path="/Receita" component={Receita} />
         <Route path="/CadastroAtendimento" component={CadastroAtendimento} />
+        <Route path="/CadastroDentista" component={CadastroDentista} />
 
         
         

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Header from './Header';
-import Body from './Body';
-import Footer from './Footer';
-import { link } from 'react-router-dom';
+import Header from '../components/Header';
+import Body from '../components/Body';
+import Footer from '../components/Footer';
+
 
 class Menu extends Component {
 render() {

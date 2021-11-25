@@ -1,21 +1,21 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
-import data from "../mock-data.json";
+import data from "../data/paciente-data.json";
 import ReadOnlyRow from "../components/ReadOnlyRow";
-import FormGroup from '../components/form-group'
 import EditableRow from "../components/EditableRow";
 import Card from '../components/card'
 import SelectMenu from '../components/selectMenu'
 import InputMask from "react-input-mask";
-import Header from './Header';
-import Footer from './Footer';
-import backgroundImage from '../image/fundo.jpeg'
-import './styles.css'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import backgroundImage from '../image/fundo.jpeg';
+import '../styles.css'
+import { FilteringTable } from "../components/FiltertingTable";
 
 
-const Atendimento = () => {
- 
-   
+const Paciente = () => {
+  
+
   const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
     fullName: "",
@@ -164,12 +164,13 @@ const Atendimento = () => {
   };
 
   const lista = [
-    {label:'SELECIONE', value:''},
-    {label:'MASCULINO', value:'Masculino'},
-    {label:'FEMININO', value:'Feminino'},
-    {label:'NÃO-BINÁRIO', value:'Nb'},
-    {label:'NÃO ESPECIFICADO', value:'Ne'}
+    {label:'SELECIONE', value:null},
+    {label:'MASCULINO', value:'MASCULINO'},
+    {label:'FEMININO', value:'FEMININO'},
+    {label:'NÃO-BINÁRIO', value:'NB'},
+    {label:'NÃO ESPECIFICADO', value:'NE'}
 ]
+
 
   return (
     <div className="app-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -177,20 +178,21 @@ const Atendimento = () => {
       <main className="container ">
 
       <Card title = "Cadastro de Paciente">
+        <h6>
+          Campos Obrigatorios: *
+        </h6>
       <form onSubmit={handleAddFormSubmit}>
       
       <div class='row'>
           <div class='col-lg-12'>
           <label  htmlFor="inputNome">Nome:*</label>
             <div class="form-group">
-              
                 <input type= "text" 
                   name="fullName"
                   required="required"
                   className="form-control"
                   placeholder="Digite o nome..."
                   onChange={handleAddFormChange}/>
-              
             </div>
           </div> 
         </div>
@@ -260,11 +262,10 @@ const Atendimento = () => {
           </div>
           <div class="col-md-4 col-xs-4">
             <div class='FormGroup'>
-            <label  htmlFor="inputConvenio">Convênio:*</label>
+            <label  htmlFor="inputConvenio">Convênio:</label>
               <input
                 type="text"
                 name="convenio"
-                required="required"
                 className="form-control"
                 placeholder="Digite o Convenio..."
                 onChange={handleAddFormChange}
@@ -275,11 +276,10 @@ const Atendimento = () => {
         <div class ='row'>
           <div class='col-lg-12'>
             <div class="form-group">
-            <label>Email:*</label>
+            <label>Email:</label>
               <input
                 type="email"
                 name="email"
-                required="required"
                 className="form-control"
                 placeholder="Digite o email..."
                 onChange={handleAddFormChange}
@@ -331,11 +331,10 @@ const Atendimento = () => {
           </div>
           <div class="col-md-2 col-xs-2">
             <div class='FormGroup'>
-            <label>Complemento:*</label>
+            <label>Complemento:</label>
               <input
                 type="text"
                 name="complemento"
-                required="required"
                 className="form-control"
                 placeholder="Complemento"
                 onChange={handleAddFormChange}
@@ -351,9 +350,10 @@ const Atendimento = () => {
         </form>
       </Card>
       </main>
-      <Card title = "Cadastro de Paciente">
+      <Card title = "Pacientes Cadastrados">
       <form onSubmit={handleEditFormSubmit}>
-        <table id="tbPaciente" >
+        <FilteringTable></FilteringTable>
+          <table id="tbPaciente" >
           <thead>
             <tr>
 
@@ -371,6 +371,7 @@ const Atendimento = () => {
               <th>COMPLEMENTO</th>           
               <th>AÇÕES</th>
             </tr>
+
           </thead>
           <tbody>
             {contacts.map((contact) => (
@@ -402,4 +403,4 @@ const Atendimento = () => {
   );
 }
 
-export default Atendimento;
+export default Paciente;

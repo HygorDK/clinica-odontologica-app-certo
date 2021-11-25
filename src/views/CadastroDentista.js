@@ -1,33 +1,35 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useMemo } from "react";
 import { nanoid } from "nanoid";
-import data from "../data/atendimento-data.json"
-import ReadOnlyRowA from "../components/ReadOnlyRowA"
-import EditableRowA from "../components/EditableRowA";
+import data from "../data/dentista-data.json"
+import ReadOnlyRowB from "../components/ReadOnlyRowB";
+import EditableRowB from "../components/EditableRowB";
 import Card from '../components/card'
 import InputMask from "react-input-mask";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import backgroundImage from '../image/fundo.jpeg';
+import backgroundImage from '../image/fundo.jpeg'
 import '../styles.css'
 
-const Atendimento = () => {
-    
+const CadastroDentista = () => {
+  
 
   const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
-    nome: "",
-    cpf: "",
-    data: "",
-    hora:"",
-    dentista:"",
+    fullName: "",
+    email: "",
+    cro: "",
+    telefone: "",
+    celular: "",
+  
   });
 
   const [editFormData, setEditFormData] = useState({
-    nome: "",
-    cpf: "",
-    data: "",
-    hora:"",
-    dentista:"",
+    fullName: "",
+    email: "",
+    cro: "",
+    telefone: "",
+    celular: "",
+
   });
 
   const [editContactId, setEditContactId] = useState(null);
@@ -61,11 +63,11 @@ const Atendimento = () => {
 
     const newContact = {
       id: nanoid(),
-      nome: addFormData.nome,
-      cpf: addFormData.cpf,
-      data: addFormData.data,
-      hora: addFormData.hora,
-      dentista: addFormData.dentista,
+      fullName: addFormData.fullName,
+      email: addFormData.email,
+      cro: addFormData.cro,
+      telefone: addFormData.telefone,
+      celular: addFormData.celular,
     };
 
     const newContacts = [...contacts, newContact];
@@ -77,11 +79,11 @@ const Atendimento = () => {
 
     const editedContact = {
       id: editContactId,
-      nome: editFormData.nome,
-      cpf: editFormData.cpf,
-      data: editFormData.data,
-      hora: editFormData.hora,
-      dentista: editFormData.dentista,
+      fullName: editFormData.fullName,
+      email: editFormData.email,
+      cro: editFormData.cro,
+      telefone: editFormData.telefone,
+      celular: editFormData.celular,
     };
 
 
@@ -100,11 +102,11 @@ const Atendimento = () => {
     setEditContactId(contact.id);
 
     const formValues = {
-      nome: contact.nome,
-      cpf: contact.cpf,
-      data: contact.data,
-      hora: contact.hora,
-      dentista: contact.dentista,
+      fullName: contact.fullName,
+      cro: contact.cro,
+      email: contact.email,
+      telefone: contact.telefone,
+      celular: contact.celular,
     };
 
 
@@ -125,23 +127,22 @@ const Atendimento = () => {
     setContacts(newContacts);
   };
 
+
   return (
     <div className="app-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <Header></Header>
-      
       <main className="container ">
 
-      <Card title = "Cadastro de Atendimento">
+      <Card title = "Cadastro de Dentista">
       <form onSubmit={handleAddFormSubmit}>
       
       <div class='row'>
-        <div class="col-md-8 col-xs-8"> 
+          <div class='col-lg-12'>
           <label  htmlFor="inputNome">Nome:*</label>
             <div class="form-group">
               
-                <input 
-                  type= "text" 
-                  name="nome"
+                <input type= "text" 
+                  name="fullName"
                   required="required"
                   className="form-control"
                   placeholder="Digite aqui"
@@ -149,13 +150,30 @@ const Atendimento = () => {
               
             </div>
           </div> 
+        </div>
+        <div class ='row'>
+          <div class='col-lg-12'>
+            <div class="form-group">
+            <label>Email:*</label>
+              <input
+                type="email"
+                name="email"
+                required="required"
+                className="form-control"
+                placeholder="Digite aqui"
+                onChange={handleAddFormChange}
+              />
+            </div>
+          </div>
+        </div>
+        <div class ='row'>
           <div class="col-md-4 col-xs-4">
-          <label  htmlFor="inputCPF">CPF:*</label>
+          <label  htmlFor="inputCPF">CRO:*</label>
             <div class='FormGroup'>
               <InputMask
-                mask="999.999.999-99"
+                mask="aa 99-999"
                 type="text"
-                name="cpf"
+                name="cro"
                 required="required"
                 className="form-control"
                 placeholder="Digite aqui"
@@ -163,28 +181,13 @@ const Atendimento = () => {
               />
             </div>
           </div>
-          </div>
-          <div class = "row">
-          <div class="col-md-4 col-xs-4">
-          <label  htmlFor="inputDate">Data:*</label>
-            <div class='FormGroup'>
-              <input
-                type="date"
-                name="data"
-                required="required"
-                className="form-control"
-                placeholder="Digite aqui"
-                onChange={handleAddFormChange}
-              />
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-4">
-          <label  htmlFor="inputDate">Hora:*</label>
-            <div class='FormGroup'>
+        <div class="col-md-4 col-xs-4">
+          <div class='FormGroup'>
+            <label  htmlFor="inputTelefone">Telefone:*</label>
               <InputMask
-                mask="99:99"
+                mask="(99) 9999-9999"
                 type="text"
-                name="hora"
+                name="telefone"
                 required="required"
                 className="form-control"
                 placeholder="Digite aqui"
@@ -193,18 +196,20 @@ const Atendimento = () => {
             </div>
           </div>
           <div class="col-md-4 col-xs-4">
-          <label  htmlFor="inputDentista">Dentista:*</label>
             <div class='FormGroup'>
-              <input
+            <label  htmlFor="inputCelular">Celular:*</label>
+              <InputMask
+                mask="(99) 9 9999-9999"
                 type="text"
-                name="dentista"
+                name="celular"
                 required="required"
                 className="form-control"
                 placeholder="Digite aqui"
                 onChange={handleAddFormChange}
-              />
+                />
             </div>
           </div>
+    
         </div>
         <br>
         </br>
@@ -214,17 +219,17 @@ const Atendimento = () => {
         </form>
       </Card>
       </main>
-      <Card title = "Atendimentos cadastrados">
+      <Card title = "Dentistas cadastrados">
       <form onSubmit={handleEditFormSubmit}> 
-        <table id="tbPaciente">
+        <table id="tbDentista">
           <thead>
             <tr>
 
               <th>NOME</th>
-              <th>CPF</th>
-              <th>DATA</th>
-              <th>HORA</th>
-              <th>DENTISTA</th>
+              <th>EMAIL</th>
+              <th>CRO</th>
+              <th>TELEFONE</th>
+              <th>CELULAR</th>
               <th>AÇÕES</th>
             </tr>
           </thead>
@@ -232,13 +237,13 @@ const Atendimento = () => {
             {contacts.map((contact) => (
               <Fragment>
                 {editContactId === contact.id ? (
-                  <EditableRowA
+                  <EditableRowB
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
                     handleCancelClick={handleCancelClick}
                   />
                 ) : (
-                  <ReadOnlyRowA
+                  <ReadOnlyRowB
                     contact={contact}
                     handleEditClick={handleEditClick}
                     handleDeleteClick={handleDeleteClick}
@@ -258,4 +263,4 @@ const Atendimento = () => {
   );
 }
 
-export default Atendimento;
+export default CadastroDentista;

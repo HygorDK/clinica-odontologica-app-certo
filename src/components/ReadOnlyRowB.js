@@ -1,20 +1,21 @@
 import React from "react";
-import '../styles.css'
-const ReadOnlyRowA = ({ contact, handleEditClick, handleDeleteClick }) => {
+
+const ReadOnlyRowB = ({ contact, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
-      <td>{contact.nome}</td>
-      <td>{contact.cpf}</td>
-      <td>{contact.data}</td>
-      <td>{contact.hora}</td>
-      <td>{contact.dentista}</td>
-     
+      <td>{contact.fullName}</td>
+      <td>{contact.email}</td>
+      <td>{contact.cro}</td>
+      <td>{contact.telefone}</td>
+      <td>{contact.celular}</td>
+      
+
       <td>
         <button
           type="button" className="btn btn-warning"
           onClick={(event) => handleEditClick(event, contact)}
         >
-          ✍🏻
+        ✍🏻
         </button>  
         <button type="button" className="btn btn-danger" onClick={() => handleDeleteClick(contact.id)}>
         🗑️
@@ -24,6 +25,4 @@ const ReadOnlyRowA = ({ contact, handleEditClick, handleDeleteClick }) => {
   );
 };
 
-export default ReadOnlyRowA;
-
-
+export default ReadOnlyRowB;

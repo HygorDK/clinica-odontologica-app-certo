@@ -1,0 +1,27 @@
+[
+    { 
+      "id": 1,
+      "fullName": "Breno Machado",
+      "email":"BrenoF@hotmail.com",
+      "cro": "SP 21-632", 
+      "telefone":"(16)3382_1562", 
+      "celular":"(16)99255_5807"},
+  
+      { 
+        "id": 2,
+        "fullName": "Bianca Duarte", 
+        "cro": "SP 25-963",
+        "telefone":"(16)3253_2679", 
+        "celular":"(16)99457_3648",
+        "email":"DuarteBianca@gmail.com"},
+  
+        {
+        "id": 3,
+        "fullName": "Sona Buvelle", 
+        "cro": "MG 12-123", 
+        "telefone":"(33)9874_1800", 
+        "celular":"(33)99265_1478", 
+        "email":"SonaBuvell@hotmail.com"}
+        
+  ]
+  
