@@ -1,0 +1,43 @@
+create database sorrisoplus;
+use sorrisoplus;
+
+create table Paciente(
+ID_Paciente int primary key,
+nome varchar(100),
+cpf varchar (11) NOT NULL,
+data_nascimento smalldatetime NOT NULL,
+sexo varchar (20) NOT NULL,
+telofone varchar(10),
+celular varchar (11)NOT NULL, 
+convenio varchar (50),
+email varchar (100),
+cep varchar (20) NOT NULL,
+endereco VARCHAR (100) NOT NULL,
+numero int NOT NULL,
+complemento varchar (20)
+)
+
+create table Usuario (
+nome_usuario varchar primary key,
+senha varchar (8) NOT NULL
+)
+
+create table Dentista(
+ID_Dentista int primary key,
+nome varchar (100),
+email varchar (100),
+CRO varchar (8),
+telefone varchar (10),
+celular varchar (11)
+)
+
+create table Atendimento (
+ID_Atendimento int primary key,
+nome varchar (100) NOT NULL,
+cpf varchar (11) NOT NULL,
+ID_Paciente int,
+data_consulta date,
+ID_Dentista int,
+constraint fk_id_paciente foreign key (ID_Paciente) references Paciente (ID_Paciente),
+constraint fk_id_dentista foreign key (ID_Dentista) references Dentista (ID_Dentista)
+)
