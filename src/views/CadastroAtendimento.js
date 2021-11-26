@@ -9,6 +9,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import backgroundImage from '../image/fundo.jpeg';
 import '../styles.css'
+import SelectMenu from '../components/selectMenu'
 
 const Atendimento = () => {
     
@@ -125,6 +126,21 @@ const Atendimento = () => {
     setContacts(newContacts);
   };
 
+  const lista = [
+    {label:'SELECIONE', value:null},
+    {label:'Nilza Sousa', value:'Nilza Sousa'},
+    {label:'Fabricio de Abreu', value:'Fabricio de Abreu'},
+    {label:'Ana Clara Rodrigues', value:'Ana Clara Rodrigues'},
+    {label:'Carolaine Fernanda Pires', value:'Carolaine Fernanda Pires'}
+]
+
+  const dentista =[
+    {label:"SELECIONE", value:null},
+    {label:'Breno Machado', value:'Breno Machado'},
+    {label:'Bianca Duarte', value:'Bianca Duarte'},
+    {label:'Sona Buvelle', value:'Sona Buvelle'} 
+  ]
+
   return (
     <div className="app-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <Header></Header>
@@ -139,18 +155,10 @@ const Atendimento = () => {
         
           <div class='row'>
             <div class="col-md-8 col-xs-8"> 
-              <label  htmlFor="inputNome">Nome:*</label>
-                <div class="form-group">
-                  
-                    <input 
-                      type= "text" 
-                      name="nome"
-                      required="required"
-                      className="form-control"
-                      placeholder="Digite aqui"
-                      onChange={handleAddFormChange}/>
-                  
-                </div>
+            <label  htmlFor="inputSexo">Nome do Paciente:*</label>
+            <div class='FormGroup'>
+                <SelectMenu name="nome" lista={lista} className="form-control" onChange={handleAddFormChange}/>
+            </div>
               </div> 
               <div class="col-md-4 col-xs-4">
               <label  htmlFor="inputCPF">CPF:*</label>
@@ -197,16 +205,9 @@ const Atendimento = () => {
               </div>
               <div class="col-md-4 col-xs-4">
               <label  htmlFor="inputDentista">Dentista:*</label>
-                <div class='FormGroup'>
-                  <input
-                    type="text"
-                    name="dentista"
-                    required="required"
-                    className="form-control"
-                    placeholder="Digite aqui"
-                    onChange={handleAddFormChange}
-                  />
-                </div>
+              <div class='FormGroup'>
+                <SelectMenu name="dentista" lista={dentista} className="form-control" onChange={handleAddFormChange}/>
+            </div>
               </div>
             </div>
             <br>
